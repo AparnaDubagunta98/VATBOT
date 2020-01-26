@@ -12,7 +12,10 @@ issues = []
 res_file = open("results.txt","w")
 
 def phase1():
-    say("Lets Gets Started! I'm here to plan your Birthday Bash with you this year! Are you excited to plan your birthday?")
+    say("Lets Gets Started!")
+
+    say("I'm here to plan your Birthday Bash with you this year!" )
+    say("Are you excited to plan your birthday?")
     resp = get_resp()
     if(analyze(resp) == 1):
         qure['q1'] =1
@@ -25,6 +28,7 @@ def phase1():
             say("Oh! Thats okay! Do you not want them?")
             if(analyze(get_resp) == 0):
                 issues.append("parent issues")
+
         say("Excited about your friends showing up at the party?")
         resp = get_resp()
         if(analyze(resp) == 1):
@@ -45,7 +49,7 @@ def phase1():
 
 
     else:
-        issues.append("dis interest in social event")
+        issues.append("dis-interest in social event")
         say("Thats okay, Should we just jump to gifts!")
         phase2()
 
@@ -88,10 +92,10 @@ def send_results():
     if(pos > neg):
         res_file.write("You have a lovely happy child!")
     else:
-        res_file.write("Your child might be suffering from slight Anxiety or depression.\note The following are some Symptoms we detected:\n ")
+        res_file.write("Your child might be suffering from slight Anxiety or depression.\nThe following are some Symptoms we detected:\n ")
         for iss in issues:
             res_file.write(iss+"\n")
-        res_file.write("Take care!\n")
+        res_file.write("We hope your child gets the support it needs from you. Take care and good luck!\n")
     res_file.close()
 
 
